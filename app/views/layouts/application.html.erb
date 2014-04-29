@@ -12,19 +12,26 @@
 
 <div class="navbar">
   <div class="navbar-inner">
-    <a class="brand" href="/">guardian</a>
+    <% if current_user %>
+    <ul class="nav" style="float: left;">
+      <a class="brand">Guardian</a>
+    </ul>
+    <% else %>
+      <a class="brand" >Guardian</a>
+     <% end %>
     <ul class="nav" style="float: right;">
 
       <% if current_user %>
+     
 				<li><%= link_to "Sign Out", destroy_user_session_path %></li>
+        <li><%= link_to "Entries", user_entries_path  %><li>
+        <li><%= link_to "Change Password", edit_user_password_path %><li>
+
 			<% else %>
 				<li><%= link_to "Sign In", new_user_session_path %></li>
-         <li><%= link_to "Sign Up", new_user_registration_path %></li>
-      <% end %>
+        <li><%= link_to "Admin", new_admin_session_path %></li>
 
-			<% if current_user && current_user.admin? %>
-				<li><%= link_to "Admin", admin_root_path %></li>
-			<% end %>
+      <% end %>
 
     </ul>
   </div>
@@ -37,7 +44,9 @@
   <% end %>
 <% end %>
 
+<div class='content' style='margin: 15px;'>
 <%= yield %>
+</div>
 
 </body>
 </html>

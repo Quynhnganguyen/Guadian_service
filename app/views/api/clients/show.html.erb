@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @api_client.name %>
+</p>
+
+<p>
+  <b>Adresse:</b>
+  <%= @api_client.adresse %>
+</p>
+
+
+<%= link_to 'Edit', edit_api_client_path(@api_client) %> |
+<%= link_to 'Back', api_clients_path %>
