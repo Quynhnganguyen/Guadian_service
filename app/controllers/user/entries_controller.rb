@@ -6,6 +6,7 @@ class User::EntriesController < ApplicationController
 
   def show
     @entry = Entry.find(params[:id]) 
+    
     respond_to do |format|
       format.html #show_entry.html.erb } 
       format.json { render json: @entry }

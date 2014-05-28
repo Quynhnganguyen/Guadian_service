@@ -219,11 +219,9 @@ RailsAdmin.config do |config|
 
     # Found associations:
 
-      configure :user, :belongs_to_association
+      # configure :user, :belongs_to_association // il faut que delete cette ligne si tu veux create new Client by Admin
 
     # Found columns:
-
-      configure :_type, :text         # Hidden
       configure :_id, :bson_object_id
       configure :adresse, :string
       configure :name, :string
