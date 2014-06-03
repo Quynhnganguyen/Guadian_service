@@ -20,7 +20,7 @@ gem 'dragonfly', '~>0.9.14'
 gem 'rails_admin'
 gem 'pry'
 gem 'cancan'
-gem 'rails_12factor', group: :production
+gem 'rails_12factor'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -31,7 +31,7 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-    
+
 end
 ruby '2.0.0'
 
