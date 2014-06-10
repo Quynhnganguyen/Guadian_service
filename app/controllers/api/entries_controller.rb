@@ -12,7 +12,7 @@ require 'base64'
           entry.image = Base64.decode64(params[:entry][:image])
           entry.user = current_user
           entry.save
-          render json: {   :message => "Check in success", 
+          render json: {   :message => "Check in succeeded", 
                          :tag => entry.tag }
         end
     
@@ -55,7 +55,7 @@ require 'base64'
     entry = Entry.where(tag: params[:tag], check_out_at: nil).last
     
     if (entry)
-     render json: {:message => "success", 
+     render json: {:message => "succeeded", 
                     :idtag => entry._id,
                     :tag => entry.tag, 
                     :image => entry.image.url, 
@@ -73,7 +73,7 @@ require 'base64'
     entry = Entry.where(_id: params[:idtag]).last
     if (entry)
       if (entry.check_out_at)
-        render json: {   :message => "success", 
+        render json: {   :message => "succeeded", 
                       :tag => entry.tag, 
                       :imageuid => entry.image_uid,
                       :image => entry.image.url, 
@@ -83,7 +83,7 @@ require 'base64'
                       :date_checkout => entry.check_out_at.strftime("%d/%m/%Y"),
                       :guard => entry.user.name}
         else
-          render json: {   :message => "success", 
+          render json: {   :message => "succeeded", 
                       :tag => entry.tag, 
                       :imageuid => entry.image_uid,
                       :image => entry.image.url, 
@@ -102,7 +102,7 @@ require 'base64'
     if (entry)
       entry.check_out_at = Time.now
       entry.save
-      render json: {  :message => "check out success", 
+      render json: {  :message => "check out succeeded", 
                       :tag => entry.tag, 
                       :imageuid => entry.image_uid,
                       :image => entry.image.url, 
